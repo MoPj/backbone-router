@@ -10,11 +10,11 @@ StockEditView = Backbone.View.extend({
 
   update: function() {
     // this.undelegateEvents();  // stop listening for click on update to eliminate creating zombie views
-    // console.log(this.model.cid+' updated.');
+    // console.log(this.model.cid+' updated.'); - refactoring code
     this.model.set({
-      fullname: $('.fullname').val(),
-      age: $('.age').val(),
-      fleas: $('.fleas').val()
+      stockname: $('.stockname').val(),
+      symbol: $('.symbol').val(),
+      lasttrade: $('.lasttrade').val()
     });
     router.navigate('stocks', {trigger: true});
   },
@@ -23,6 +23,4 @@ StockEditView = Backbone.View.extend({
     this.$el.html(this.template(this.model.toJSON()));
     return this.el;   //  make sure the render method is always return the element object for this particular view.
   }
-
-
 });

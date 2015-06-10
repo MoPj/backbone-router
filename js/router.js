@@ -27,7 +27,7 @@ showView: function (view) {
     update: function(id) {
     var stock = stocks.at(id);
     stock.editView = new StockEditView({model: stock});
-    showView
+    this.showView(stock.editView);
   },
  
     destroy: function(id) {
@@ -40,11 +40,12 @@ showView: function (view) {
 
     show: function(id) {
     var stock = stocks.at(id);
-    stock.view = new StockShowView({model: stock}).render();
+    stock.view = new StockShowView({model: stock});
+    this.showView(stock.view);
   },
 
   index: function() {
-    stocks.view.render();
+    this.showView(stocks.view);
   }
 
 });
